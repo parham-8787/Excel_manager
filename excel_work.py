@@ -2,20 +2,14 @@ from openpyxl import Workbook, load_workbook
 
 class Excel:
     def __init__(self, address_file, sheet_name, *, create_workbook="no"):
-        self.address_file = (
-            f"{address_file}.xlsx" if not address_file.endswith(".xlsx") else address_file
-        )
-
+        self.address_file = (fr"{address_file}.xlsx" if not address_file.endswith(".xlsx") else fr"{address_file}")
         if create_workbook == "yes":
-            # همیشه یک فایل جدید می‌سازه
             self.wb = Workbook()
             self.ws = self.wb.active
             self.ws.title = sheet_name
             self.save()
             print("New workbook created.")
-
         elif create_workbook == "no":
-            # تلاش می‌کنه فایل موجود رو لود کنه، اگر نبود جدید می‌سازه
             try:
                 self.wb = load_workbook(self.address_file)
                 self.ws = self.wb[sheet_name]

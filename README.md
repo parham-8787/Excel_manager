@@ -23,10 +23,10 @@ pip install -r requirements.txt
 ```
 
 ```python
-from excel_manager import Excel
+from excel_work import Excel
 
 # Create a new workbook
-ex = Excel("test_file", "Sheet1", create_workbook="no")
+ex = Excel("address_file", "Sheet1", create_workbook="no")
 
 # Insert some data
 ex.insert_data([["Name", "Age"], ["Ali", 25]])
